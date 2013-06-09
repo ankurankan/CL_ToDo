@@ -3,18 +3,10 @@ import os
 import sys
 
 class task:
-    def __init__(self, text, date=None, time=None, complete=0):
+    def __init__(self, text, date=None, time=None):
         self.text = text
         self.date = date
         self.time = time
-        self.complete = complete
-
-    def asstring(self):
-        return_string = self.text + " " + self.date + " " + self.time + " " + self.complete
-
-def parser(string):
-    string = string.split(" ")
-    return(task(string[0], string[1], string[2], int(string[3])))
 
 def value(string):
     if not string:

@@ -20,11 +20,7 @@ remove: removes a task from the list.
 		x: exact search of tasks
 modify: modify tasks. Selecting the task based on the following options:
 	options:d:returns all the tasks of that date
-		re: Search by a regular expression. If date had been specified searches within the tasks of that date
-		x: searches for exact tasks. If date specified searches within the tasks of that date
+		re: Search by a regular expression. If date had been specified 
 
 To add: A laguage for better searching of tasks as in mercurial.
 Always be asked for conformation with all the tasks returned by the search with the option which one to mark.
-
-Features to be added in the language:
-	Providing the feature of specifying range of date or time.
