@@ -13,7 +13,7 @@ Get: see tasks
 	options:d: Specify the date of the tasks
 		re: regular expression search of tasks
 		x: exact search of tasks
-
+		use a language to filter out *
 
 
 complete: mark a task as complete. One/more than one tasks can be marked and can be
@@ -40,7 +40,7 @@ modify: modify tasks. Selecting the task based on the following options:
 
 
 
-To add: A laguage for better searching of tasks as in mercurial.
+To add: *A laguage for better searching of tasks as in mercurial.
 
 
 

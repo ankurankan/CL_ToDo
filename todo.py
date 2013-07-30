@@ -2,26 +2,7 @@ import argparse
 import os
 import sys
 
-class task:
-    def __init__(self, text, date=None, time=None, complete=0):
-        self.text = text
-        self.date = date
-        self.time = time
-        self.complete = complete
-
-    def asstring(self):
-        return_string = self.text + " " + self.date + " " + self.time + " " + self.complete
-
-def parser(string):
-    string = string.split(" ")
-    return(task(string[0], string[1], string[2], int(string[3])))
-
-def value(string):
-    if not string:
-        print("here")
-
-def month(mon):
-    month = {
+MONTH_MAP = {
             '01':'Jan',
             '02':'Feb',
             '03':'Mar',
@@ -35,14 +16,52 @@ def month(mon):
             '11':'Nov',
             '12':'Dec'
             }
-    return(month[mon])               
+
+class task:
+    def __init__(self, text, date=None, time=None, complete=0):
+        self.text = text
+        self.date = date
+        self.time = time
+        self.complete = complete
+
+    def asstring(self):
+        return_string = self.text + " " + self.date + " " + self.time + " " + self.complete
+
+def sort(li):
+#Sorts a list of task objects by date and time
+    
+
+def parser(string):
+    string = string.split(" ")
+    return(task(string[0], string[1], string[2], int(string[3])))
+
+#def value(string):
+#    if not string:
+#        print("here")
+
+#def month(mon):
+#    month = {
+#            '01':'Jan',
+#            '02':'Feb',
+#            '03':'Mar',
+#            '04':'Apr',
+#            '05':'May',
+#            '06':'June',
+#            '07':'July',
+#            '08':'Aug',
+#            '09':'Sep',
+#            '10':'Oct',
+#            '11':'Nov',
+#            '12':'Dec'
+#            }
+#    return(month[mon])
 
 def parse_date(date):
     return(date.split('/'))
 
 def add(args):
     date = parse_date(args.date)
-    path = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'todo', date[2], month(date[1])) + '/'
+    path = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'todo', date[2], MONTH_MAP[date[1]]) + '/'
     directory = os.path.dirname(path)
     if not os.path.exists(directory):
         os.makedirs(directory)
@@ -56,7 +75,7 @@ def add(args):
 def get(args):
     if args.date:
         date = parse_date(args.date)
-        path = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'todo' ,date[2], month(date[1])) + '/'
+        path = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'todo' ,date[2], MONTH_MAP[date[1]]) + '/'
         filename = date[0] + '.txt'
         tasks = []
         try:
